@@ -1,0 +1,69 @@
+name: CI
+
+# 触发时机：push 到 main / 任何 Pull Request
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # ========== 仓库健康检查：零依赖、任何技术栈第一天都能绿 ==========
+  repo-health:
+    name: 仓库健康检查
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 关键文件必须齐全
+        run: |
+          for f in README.md LICENSE .gitignore .github/workflows/ci.yml; do
+            if [ ! -f "$f" ]; then
+              echo "❌ 缺少 $f"
+              exit 1
+            fi
+          done
+          echo "✅ 关键文件齐全"
+
+      - name: 最近提交必须符合 Conventional Commits
+        run: |
+          bad=0
+          while IFS= read -r line; do
+            echo "$line" | grep -Eq '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9_-]+\))?!?: .+' \
+              || { echo "❌ 提交不规范: $line"; bad=1; }
+          done < <(git log --no-merges -10 --pretty=%s)
+          if [ $bad -ne 0 ]; then exit 1; fi
+          echo "✅ 提交信息符合规范"
+
+      - name: 工作流文件 YAML 语法校验
+        run: |
+          # 用 Python 自带 yaml 校验（无额外依赖）
+          python3 - <<'EOF'
+          import glob, sys, yaml
+          for f in glob.glob(".github/workflows/*.yml"):
+              yaml.safe_load(open(f, encoding="utf-8"))
+              print(f"✅ {f} 语法正确")
+          EOF
+
+  # ========== 示例：选定技术栈后取消注释并启用 ==========
+  # test-node:
+  #   name: Node.js 测试
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         cache: npm
+  #     - run: npm ci
+  #     - run: npm test
+
+  # test-python:
+  #   name: Python 测试
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.12"
+  #     - run: pip install -e ".[dev]"
+  #     - run: pytest
