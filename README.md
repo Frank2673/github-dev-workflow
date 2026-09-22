@@ -61,11 +61,18 @@ git push
 
 ## 🗺️ 学习路线打卡
 
-- [ ] 阶段 1：Git 基础命令（init / add / commit / log）
-- [ ] 阶段 2：分支与 Pull Request 全流程
-- [ ] 阶段 3：GitHub Pages 个人主页
-- [ ] 阶段 4：CI/CD 自动化（本仓已具备 ✅）
+- [x] 阶段 1：Git 基础命令（init / add / commit / log）
+- [x] 阶段 2：分支与 Pull Request 全流程
+- [x] 阶段 3：[GitHub Pages 个人主页](https://frank2673.github.io/)（已上线 ✅）
+- [x] 阶段 4：CI/CD 自动化（本仓已具备 ✅）
 - [ ] 阶段 5：作品集精修与开源参与
+
+## 🔗 相关仓库
+
+| 仓库 | 说明 |
+|---|---|
+| [Frank2673.github.io](https://github.com/Frank2673/Frank2673.github.io) | 个人主页（零依赖静态站 + 质量检查 CI）· [在线访问](https://frank2673.github.io/) |
+| **github-dev-workflow**（本仓） | GitHub 全流程自动化样板：规范提交、PR 模板、健康检查 CI |
 
 ---
 
