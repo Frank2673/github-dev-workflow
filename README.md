@@ -72,6 +72,9 @@ git push
 | 仓库 | 说明 |
 |---|---|
 | [Frank2673.github.io](https://github.com/Frank2673/Frank2673.github.io) | 个人主页（零依赖静态站 + 质量检查 CI）· [在线访问](https://frank2673.github.io/) |
+| [surface-watch](https://github.com/Frank2673/surface-watch) | 攻击面监控与基线差异：只在有变化时告警 |
+| [header-forge](https://github.com/Frank2673/header-forge) | 安全响应头配置即代码：一次声明生成五平台配置并自证 |
+| [engagement-ledger](https://github.com/Frank2673/engagement-ledger) | 授权凭证与防篡改审计日志：让「我有授权」变成可核验的证据 |
 | **github-dev-workflow**（本仓） | GitHub 全流程自动化样板：规范提交、PR 模板、健康检查 CI |
 
 ---

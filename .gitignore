@@ -49,3 +49,10 @@ tmp/
 .dsh/
 AGENTS.md
 AGENTS.md.bak-*
+
+# ===== 独立仓库（各自有自己的 .git，不在此仓库跟踪） =====
+Frank2673.github.io/
+Frank2673/
+surface-watch/
+header-forge/
+engagement-ledger/
