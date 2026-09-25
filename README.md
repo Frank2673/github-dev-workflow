@@ -77,6 +77,10 @@ git push
 | [engagement-ledger](https://github.com/Frank2673/engagement-ledger) | 授权凭证与防篡改审计日志：让「我有授权」变成可核验的证据 |
 | **github-dev-workflow**（本仓） | GitHub 全流程自动化样板：规范提交、PR 模板、健康检查 CI |
 
+> **关于上表**：这四个项目是**独立发布的兄弟仓** —— 各自有自己的 `.git`，与本仓并置于同一个本地目录。
+> 本仓只做**索引与流程样板**，不跟踪它们的代码（`.gitignore` 的「独立仓库」段刻意排除了这些目录），
+> 所以在 GitHub 上点开本仓是**看不到**它们的，请按表中链接分别访问各自仓库。
+
 ---
 
 *由 DeepSeek Harness 协助搭建 · 学习 GitHub 全流程自动化的第一个仓库*
